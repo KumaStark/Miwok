@@ -24,6 +24,7 @@
     tools:context="com.example.android.miwok.MainActivity">
 
     <LinearLayout
+        android:id="@+id/menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -32,8 +33,7 @@
             android:id="@+id/numbers"
             style="@style/CategoryStyle"
             android:background="@color/category_numbers"
-            android:text="@string/category_numbers"
-            android:onClick="openNumbersList"/>
+            android:text="@string/category_numbers" />
 
         <TextView
             android:id="@+id/family"
@@ -54,7 +54,7 @@
             android:text="@string/category_phrases" />
 
         <TextView
-            android:id="@+id/ButtonTest"
+            android:id="@+id/button_function_test"
             style="@style/CategoryStyle"
             android:background="@android:color/black"
             android:text="@string/ButtonTest" />

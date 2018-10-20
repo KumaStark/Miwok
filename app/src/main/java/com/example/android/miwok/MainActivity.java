@@ -20,8 +20,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +35,40 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+        setOnClickListener2Menu(findViewById(R.id.menu));
+    }
+
+    private void setOnClickListener2Menu(View view) {
+        ViewGroup menulist = (ViewGroup) view;
+        for (int i = 0; i < menulist.getChildCount(); i++) {
+            View menuitem = menulist.getChildAt(i);
+            menuitem.setOnClickListener(this);
+        }
+    }
+
+    @Override
+    public void onClick(View view){
+        int viewID = view.getId();
+        String viewText = ((TextView) view).getText()+"("+viewID+")";
+        Intent i = new Intent();
+        switch(view.getId()) {
+            case R.id.numbers:
+                i.setClass(this,NumbersActivity.class);
+                break;
+            default:
+                break;
+        }
+        if(i.resolveActivity(getPackageManager()) != null) {
+            Toast.makeText(view.getContext(),viewText,Toast.LENGTH_SHORT).show();
+            startActivity(i);
+        }else{
+            Toast.makeText(view.getContext(),viewText + " Not Ready",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void openNumbersList(View view){
         Intent i = new Intent(this,NumbersActivity.class);
-        startActivity(i);
+
     }
 }
