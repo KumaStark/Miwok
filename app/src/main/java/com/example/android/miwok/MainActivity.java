@@ -55,6 +55,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.numbers:
                 i.setClass(this,NumbersActivity.class);
                 break;
+            case R.id.colors:
+                i.setClass(this,ColorsActivity.class);
+                break;
+            case R.id.family:
+                i.setClass(this,FamilyActivity.class);
+                break;
+            case R.id.phrases:
+                i.setClass(this,PhrasesActivity.class);
+                break;
+            case R.id.button_function_test:
+                //TODO add test function
+                break;
             default:
                 break;
         }
@@ -64,11 +76,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             Toast.makeText(view.getContext(),viewText + " Not Ready",Toast.LENGTH_SHORT).show();
         }
-
-    }
-
-    public void openNumbersList(View view){
-        Intent i = new Intent(this,NumbersActivity.class);
-
     }
 }
