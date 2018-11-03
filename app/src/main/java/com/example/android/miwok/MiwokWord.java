@@ -5,22 +5,34 @@ package com.example.android.miwok;
  * 包含1个默认语言的单词及其对应的Miwok语言单词
  */
 
-public class MiwokWord {
+class MiwokWord {
+
     private String mDefaultTranslation;
     private String mMiwokTranslation;
-    private String mImageResId;
-    private String mPronounceResId;
+    private int mImageResId;
+    //private int mPronounceResId;
 
-    public MiwokWord(String dTranslation, String mTranslation){
+    MiwokWord(String dTranslation, String mTranslation, int imageResId){
         mDefaultTranslation = dTranslation;
         mMiwokTranslation = mTranslation;
+        mImageResId = imageResId;
     }
 
-    public String getDefaultTranslation(){
+    MiwokWord(String dTranslation, String mTranslation){
+        mDefaultTranslation = dTranslation;
+        mMiwokTranslation = mTranslation;
+        mImageResId = 0;
+    }
+
+    String getDefaultTranslation(){
         return mDefaultTranslation;
     }
 
-    public String getMiwokTranslation(){
+    String getMiwokTranslation(){
         return mMiwokTranslation;
+    }
+
+    int getImageResId(){
+        return mImageResId;
     }
 }

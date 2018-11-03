@@ -16,7 +16,6 @@
 package com.example.android.miwok;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,15 +23,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
         setOnClickListener2Menu(findViewById(R.id.menu));
@@ -65,13 +60,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 i.setClass(this,PhrasesActivity.class);
                 break;
             case R.id.button_function_test:
-                //TODO add test function
+                view.setVisibility(View.GONE);
                 break;
             default:
                 break;
         }
         if(i.resolveActivity(getPackageManager()) != null) {
-            Toast.makeText(view.getContext(),viewText,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(view.getContext(),viewText,Toast.LENGTH_SHORT).show();
             startActivity(i);
         }else{
             Toast.makeText(view.getContext(),viewText + " Not Ready",Toast.LENGTH_SHORT).show();
