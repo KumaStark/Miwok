@@ -10,7 +10,6 @@ class MiwokWord {
     private String mDefaultTranslation;
     private String mMiwokTranslation;
     private int mImageResId;
-    //private int mPronounceResId;
 
     MiwokWord(String dTranslation, String mTranslation, int imageResId){
         mDefaultTranslation = dTranslation;

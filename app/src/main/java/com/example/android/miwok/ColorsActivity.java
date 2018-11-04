@@ -1,13 +1,15 @@
 package com.example.android.miwok;
 
-import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class ColorsActivity extends AppCompatActivity {
+public class ColorsActivity extends AppCompatActivity{
+
+    private static final String PRONOUNCE_FILE_PREFIX = "color_";
+    private static final String PRONOUNCE_FILE_SUFFIX = ".mp3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +27,11 @@ public class ColorsActivity extends AppCompatActivity {
         wordsList.add(new MiwokWord("dusty yellow","ṭopiisə",R.drawable.color_dusty_yellow));
         wordsList.add(new MiwokWord("mustard yellow","chiwiiṭə",R.drawable.color_mustard_yellow));
         // Create custom ArrayAdapter to bundle with wordsList
-        WordAdapter listViewAdapter = new WordAdapter(this, wordsList);
+        MiwokWordAdapter listViewAdapter = new MiwokWordAdapter(this, wordsList);
         // Find the listView to contain list items and set it's adapter
         ListView listView = findViewById(R.id.list);
-        listView.setBackgroundColor(getResources().getColor(R.color.category_colors));
+        listView.setBackgroundColor(getResources().getColor(R.color.category_colors,null));
         listView.setAdapter(listViewAdapter);
+        listView.setOnItemClickListener(new MiwokWordClickListener(this, this.getLocalClassName(), wordsList, PRONOUNCE_FILE_PREFIX, PRONOUNCE_FILE_SUFFIX));
     }
 }

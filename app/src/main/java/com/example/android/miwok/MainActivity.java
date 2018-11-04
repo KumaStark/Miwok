@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-        setOnClickListener2Menu(findViewById(R.id.menu));
+        setOnClickListeners(findViewById(R.id.menu));
     }
 
-    private void setOnClickListener2Menu(View view) {
-        ViewGroup menulist = (ViewGroup) view;
-        for (int i = 0; i < menulist.getChildCount(); i++) {
-            View menuitem = menulist.getChildAt(i);
-            menuitem.setOnClickListener(this);
+    private void setOnClickListeners(View view) {
+        ViewGroup list = (ViewGroup) view;
+        for (int i = 0; i < list.getChildCount(); i++) {
+            View listItem = list.getChildAt(i);
+            listItem.setOnClickListener(this);
         }
     }
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 i.setClass(this,PhrasesActivity.class);
                 break;
             case R.id.button_function_test:
-                view.setVisibility(View.GONE);
+                i.setClass(this,MediaPlayerActivity.class);
                 break;
             default:
                 break;

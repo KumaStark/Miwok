@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
 
+    private static final String PRONOUNCE_FILE_PREFIX = "family_";
+    private static final String PRONOUNCE_FILE_SUFFIX = ".mp3";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +29,11 @@ public class FamilyActivity extends AppCompatActivity {
         wordsList.add(new MiwokWord("grandfather","paapa",R.drawable.family_grandfather));
         wordsList.add(new MiwokWord("grandmother","ama",R.drawable.family_grandmother));
         // Create custom ArrayAdapter to bundle with wordsList
-        WordAdapter listViewAdapter = new WordAdapter(this, wordsList);
+        MiwokWordAdapter listViewAdapter = new MiwokWordAdapter(this, wordsList);
         // Find the listView to contain list items and set it's adapter
         ListView listView = findViewById(R.id.list);
-        listView.setBackgroundColor(getResources().getColor(R.color.category_family));
+        listView.setBackgroundColor(getResources().getColor(R.color.category_family,null));
         listView.setAdapter(listViewAdapter);
+        listView.setOnItemClickListener(new MiwokWordClickListener(this, this.getLocalClassName(), wordsList, PRONOUNCE_FILE_PREFIX, PRONOUNCE_FILE_SUFFIX));
     }
 }

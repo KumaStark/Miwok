@@ -57,7 +57,7 @@
             android:id="@+id/button_function_test"
             style="@style/CategoryStyle"
             android:background="@android:color/black"
-            android:text="@string/ButtonTest" />
+            android:text="@string/category_media_player" />
 
     </LinearLayout>
 </ScrollView>

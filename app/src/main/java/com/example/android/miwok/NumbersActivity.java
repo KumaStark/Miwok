@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
+    private static final String PRONOUNCE_FILE_PREFIX = "number_";
+    private static final String PRONOUNCE_FILE_SUFFIX = ".mp3";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +28,11 @@ public class NumbersActivity extends AppCompatActivity {
         wordsList.add(new MiwokWord("nine","wo’e",R.drawable.number_nine));
         wordsList.add(new MiwokWord("ten","na’aacha",R.drawable.number_ten));
         // Create custom ArrayAdapter to bundle with wordsList
-        WordAdapter listViewAdapter = new WordAdapter(this, wordsList);
+        MiwokWordAdapter listViewAdapter = new MiwokWordAdapter(this, wordsList);
         // Find the listView to contain list items and set it's adapter
         ListView listView = findViewById(R.id.list);
-        listView.setBackgroundColor(getResources().getColor(R.color.category_numbers));
+        listView.setBackgroundColor(getResources().getColor(R.color.category_numbers,null));
         listView.setAdapter(listViewAdapter);
+        listView.setOnItemClickListener(new MiwokWordClickListener(this, this.getLocalClassName(), wordsList, PRONOUNCE_FILE_PREFIX, PRONOUNCE_FILE_SUFFIX));
     }
 }
