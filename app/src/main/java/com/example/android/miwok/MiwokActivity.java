@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import static com.example.android.miwok.MiwokWordContract.INTENT_EXTRA_BACKGROUND_COLOR;
 import static com.example.android.miwok.MiwokWordContract.INTENT_EXTRA_CATEGORY;
+import static com.example.android.miwok.MiwokWordContract.INTENT_EXTRA_TITLE;
 
 public class MiwokActivity extends AppCompatActivity{
 
@@ -19,9 +20,12 @@ public class MiwokActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
         Intent i = getIntent();
+        int activityTitle = i.getIntExtra(INTENT_EXTRA_TITLE, R.string.app_name);
         String activityCategory = i.getStringExtra(INTENT_EXTRA_CATEGORY);
         int activityBackgroundColorId = i.getIntExtra(INTENT_EXTRA_BACKGROUND_COLOR,
                 R.color.default_background_color);
+        // Set the title of the activity
+        this.setTitle(getResources().getString(activityTitle));
         // Find the listView to contain list items and set it's adapter
         ListView listView = findViewById(R.id.list);
         // Set Background color of Miwok Words List

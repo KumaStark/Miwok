@@ -19,10 +19,10 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setOnClickListeners(View view) {
-        ViewGroup menulist = (ViewGroup) view;
-        for (int i = 0; i < menulist.getChildCount(); i++) {
-            View menuitem = menulist.getChildAt(i);
-            menuitem.setOnClickListener(this);
+        ViewGroup viewGroup = (ViewGroup) view;
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            View groupChild = viewGroup.getChildAt(i);
+            groupChild.setOnClickListener(this);
         }
     }
 
@@ -39,7 +39,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
             case R.id.button_pause:
                 Toast.makeText(this, "Pause !", Toast.LENGTH_SHORT).show();
                 if(mediaPlayer != null){
-                    mediaPlayer.pause();;
+                    mediaPlayer.pause();
                 }
                 break;
         }

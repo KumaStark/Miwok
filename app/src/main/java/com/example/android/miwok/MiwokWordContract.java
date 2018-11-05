@@ -5,8 +5,13 @@ import java.util.ArrayList;
 public class MiwokWordContract {
     public static final String IMIWOK_FILE_PREFIX = "_";
     public static final String IMIWOK_FILE_SUFFIX = ".mp3";
+    public static final String INTENT_EXTRA_TITLE = "title";
     public static final String INTENT_EXTRA_CATEGORY = "category";
     public static final String INTENT_EXTRA_BACKGROUND_COLOR = "background_color";
+    public static final int INTENT_TITLE_COLOR = R.string.category_colors;
+    public static final int INTENT_TITLE_FAMILY = R.string.category_family;
+    public static final int INTENT_TITLE_NUMBERS = R.string.category_numbers;
+    public static final int INTENT_TITLE_PHRASES = R.string.category_phrases;
     public static final String INTENT_CATEGORY_COLOR = "color";
     public static final String INTENT_CATEGORY_FAMILY = "family";
     public static final String INTENT_CATEGORY_NUMBERS = "number";
@@ -75,15 +80,15 @@ public class MiwokWordContract {
         WORD_LIST_NUMBERS.add(new MiwokWord("nine","wo’e",R.drawable.number_nine));
         WORD_LIST_NUMBERS.add(new MiwokWord("ten","na’aacha",R.drawable.number_ten));
         //
-        WORD_LIST_PHRASES.add(new MiwokWord("Where are you going?","minto wuksus",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("What is your name?","tinnə oyaase'nə",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("My name is...","oyaaset...",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("How are you feeling?","michəksəs?",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("I’m feeling good.","kuchi achit",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("Are you coming?","əənəs'aa?",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("Yes, I’m coming.","həə’ əənəm",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("I’m coming.","əənəm",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("Let’s go.","yoowutis",0));
-        WORD_LIST_PHRASES.add(new MiwokWord("Come here.","ənni'nem",0));
+        WORD_LIST_PHRASES.add(new MiwokWord("Where are you going?","minto wuksus"));
+        WORD_LIST_PHRASES.add(new MiwokWord("What is your name?","tinnə oyaase'nə"));
+        WORD_LIST_PHRASES.add(new MiwokWord("My name is...","oyaaset..."));
+        WORD_LIST_PHRASES.add(new MiwokWord("How are you feeling?","michəksəs?"));
+        WORD_LIST_PHRASES.add(new MiwokWord("I’m feeling good.","kuchi achit"));
+        WORD_LIST_PHRASES.add(new MiwokWord("Are you coming?","əənəs'aa?"));
+        WORD_LIST_PHRASES.add(new MiwokWord("Yes, I’m coming.","həə’ əənəm"));
+        WORD_LIST_PHRASES.add(new MiwokWord("I’m coming.","əənəm"));
+        WORD_LIST_PHRASES.add(new MiwokWord("Let’s go.","yoowutis"));
+        WORD_LIST_PHRASES.add(new MiwokWord("Come here.","ənni'nem"));
     }
 }

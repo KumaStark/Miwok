@@ -30,8 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MiwokActivity"
-            android:label="@string/category_colors" />
+            android:name=".MiwokActivity" />
         <activity
             android:name=".MediaPlayerActivity"
             android:label="@string/category_media_player" />
