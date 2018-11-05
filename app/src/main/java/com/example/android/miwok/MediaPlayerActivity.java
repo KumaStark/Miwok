@@ -15,7 +15,6 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_player);
-        mediaPlayer = MediaPlayer.create(this, R.raw.sample_music);
         setOnClickListeners(this.findViewById(R.id.player_control));
     }
 
@@ -32,12 +31,27 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
         switch(v.getId()){
             case R.id.button_play:
                 Toast.makeText(this, "Play !", Toast.LENGTH_SHORT).show();
+                if(mediaPlayer == null){
+                    mediaPlayer = MediaPlayer.create(this, R.raw.sample_music);
+                }
                 mediaPlayer.start();
                 break;
             case R.id.button_pause:
                 Toast.makeText(this, "Pause !", Toast.LENGTH_SHORT).show();
-                mediaPlayer.pause();
+                if(mediaPlayer != null){
+                    mediaPlayer.pause();;
+                }
                 break;
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(mediaPlayer != null){
+            mediaPlayer.release();
+            mediaPlayer = null;
+            Toast.makeText(this, "MediaPlayer Destroyed !", Toast.LENGTH_SHORT).show();
         }
     }
 }

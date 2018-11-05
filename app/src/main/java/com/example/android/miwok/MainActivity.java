@@ -23,6 +23,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.android.miwok.MiwokWordContract.INTENT_CATEGORY_COLOR;
+import static com.example.android.miwok.MiwokWordContract.INTENT_CATEGORY_FAMILY;
+import static com.example.android.miwok.MiwokWordContract.INTENT_CATEGORY_NUMBERS;
+import static com.example.android.miwok.MiwokWordContract.INTENT_CATEGORY_PHRASES;
+import static com.example.android.miwok.MiwokWordContract.INTENT_EXTRA_BACKGROUND_COLOR;
+import static com.example.android.miwok.MiwokWordContract.INTENT_EXTRA_CATEGORY;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -31,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
         setOnClickListeners(findViewById(R.id.menu));
+        MiwokWordContract.createMiwokWordList();
     }
 
     private void setOnClickListeners(View view) {
@@ -48,16 +56,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent i = new Intent();
         switch(view.getId()) {
             case R.id.numbers:
-                i.setClass(this,NumbersActivity.class);
+                i.setClass(this,MiwokActivity.class);
+                i.putExtra(INTENT_EXTRA_CATEGORY, INTENT_CATEGORY_NUMBERS);
+                i.putExtra(INTENT_EXTRA_BACKGROUND_COLOR, R.color.category_numbers);
                 break;
             case R.id.colors:
-                i.setClass(this,ColorsActivity.class);
+                i.setClass(this,MiwokActivity.class);
+                i.putExtra(INTENT_EXTRA_CATEGORY, INTENT_CATEGORY_COLOR);
+                i.putExtra(INTENT_EXTRA_BACKGROUND_COLOR, R.color.category_colors);
                 break;
             case R.id.family:
-                i.setClass(this,FamilyActivity.class);
+                i.setClass(this,MiwokActivity.class);
+                i.putExtra(INTENT_EXTRA_CATEGORY, INTENT_CATEGORY_FAMILY);
+                i.putExtra(INTENT_EXTRA_BACKGROUND_COLOR, R.color.category_family);
                 break;
             case R.id.phrases:
-                i.setClass(this,PhrasesActivity.class);
+                i.setClass(this,MiwokActivity.class);
+                i.putExtra(INTENT_EXTRA_CATEGORY, INTENT_CATEGORY_PHRASES);
+                i.putExtra(INTENT_EXTRA_BACKGROUND_COLOR, R.color.category_phrases);
                 break;
             case R.id.button_function_test:
                 i.setClass(this,MediaPlayerActivity.class);
